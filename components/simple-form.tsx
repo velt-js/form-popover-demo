@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useEffect } from 'react'
-import { useId } from 'react'
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import {
@@ -27,8 +26,6 @@ const questions = [
 ]
 
 export default function SimpleForm() {
-  const idPrefix = useId()
-
   // Set the document ID for Velt
   useSetDocument(DOCUMENT_ID, {
     documentName: 'Reflective Questionnaire Form'
@@ -60,23 +57,23 @@ export default function SimpleForm() {
           <div key={question.id} className="space-y-2">
             <div className="flex items-start justify-between gap-4">
               <Label 
-                htmlFor={`${idPrefix}-${question.id}`}
+                htmlFor={question.id}
                 className="text-base font-medium flex-grow"
               >
                 {question.text}
               </Label>
               <div>
                 <VeltCommentTool
-                  targetElementId={`${idPrefix}-${question.id}`}
+                  targetElementId={question.id}
                 />
                 <VeltCommentBubble
-                  targetElementId={`${idPrefix}-${question.id}`}
+                  targetElementId={question.id}
                 />
               </div>
             </div>
             <Input 
               type="text" 
-              id={`${idPrefix}-${question.id}`} 
+              id={question.id}
               placeholder="Share your thoughts..."
               className="h-12"
             />

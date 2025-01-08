@@ -15,7 +15,7 @@ export default function Home() {
           <SimpleForm />
         </div>
         <VeltWireframeComponent />
-        <VeltComments popoverMode={true} commentPinHighlighter={false} popoverTriangleComponent={false} />
+        <VeltComments popoverMode={true} commentPinHighlighter={false} popoverTriangleComponent={false} recordings='none' />
         <VeltCommentsSidebar />
       </AppLayout>
     </VeltProvider>
