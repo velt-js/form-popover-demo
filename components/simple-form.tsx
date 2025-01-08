@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useId } from 'react'
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -8,6 +8,7 @@ import {
   VeltCommentTool,
   VeltCommentBubble,
   useSetDocument,
+  useContactUtils
 } from '@veltdev/react';
 
 const DOCUMENT_ID = 'reflective-questionnaire';
@@ -32,6 +33,15 @@ export default function SimpleForm() {
   useSetDocument(DOCUMENT_ID, {
     documentName: 'Reflective Questionnaire Form'
   });
+
+  const contactElement = useContactUtils();
+
+  useEffect(() => {
+    // Disable @here from the contacts dropdown in Velt
+    if (contactElement) {
+      contactElement.disableAtHere();
+    }
+  }, [contactElement]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
