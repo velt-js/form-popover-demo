@@ -8,7 +8,7 @@ export default function AuthComponent() {
     email: 'john.doe@example.com',
     color: '#FF5733', // Example hex color
     textColor: '#FFFFFF',
-    organizationId: 'org-123'
+    organizationId: 'test-org-123'
   };
 
   // Call useIdentify hook directly in the component
